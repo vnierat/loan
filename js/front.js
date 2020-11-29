@@ -75,9 +75,9 @@ $(function () {
 
 
   window.onscroll = function showScroll() {
-    console.log(window.scrollY); // Value of scroll Y in px
+    //console.log(window.scrollY); // Value of scroll Y in px
     var windWidth = window.innerWidth;
-    console.log(windWidth);
+    //console.log(windWidth);
 
     
     if (windWidth <= 991 && window.scrollY >= 540) {

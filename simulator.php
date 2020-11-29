@@ -39,7 +39,7 @@
                                     </td>
                     <td><input class="frais-notaire" name="frais-notaire" type="text" readonly /> €</td>
                 </tr>
-                <tr class="garantie">
+                <tr class="garantie d-none">
                     <td>Garantie
                                     <span class="glyphicon glyphicon-question-sign  info-comp"
                                           title="La garantie est une sorte de sécurité demandée à l’emprunteur par le prêteur, afin de recouvrir sa créance en cas de défaillance de l’emprunteur. Elle peut être personnelle (caution simple ou solidaire) ou réelle (hypothèque, nantissement)"></span>                                
@@ -148,7 +148,7 @@
         <div class="col-md-6 jumbotron">
             <tr class="import-2">
                 <td>Taux endettement</td>
-                <td><input class="taux-endettement" name="taux-endettement" type="text" value="0" readonly /></td>
+                <td><input class="taux-endettement" name="taux-endettement" type="hidden" value="0" readonly /></td>
                 <td><div class="resultatTot"></div></td>
             
             </tr>

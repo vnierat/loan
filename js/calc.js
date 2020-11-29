@@ -136,11 +136,12 @@ function calcMensualite(){
 	var total_fi=parseFloat($(".total-financer").val());
 	var taux=parseFloat($(".taux").val());
 	var duree=parseFloat($(".duree-souhaitee").val());
-	
+
 	var calc1=(total_fi*((taux/100)/12));
 	var calc2=1-Math.pow((1+(taux/100)/12),-duree);
 	$("input[name='mensualite']").val((calc1/calc2).toFixed(2));
 	calcTauxEndettement();
+	calcEtalement();
 }
 
 function calcRevenusMensuels(){
@@ -164,6 +165,14 @@ function calcTauxEndettement(){
 	}
 }
 
+function calcEtalement(){
+	var total_fi=parseFloat($(".total-financer").val());
+	var duree=parseFloat($(".duree-souhaitee").val());
+	var mens=parseFloat($(".mensualite-souhaitee").val());
+	var calculDuree = (mens*12)*duree;
+
+	console.log(calculDuree);
+}
 
 
 $(document).ready(function() {
@@ -202,8 +211,12 @@ $(document).ready(function() {
 		calcMensualite();
 	});
 
-	$("input[name='mensulalite-souhaitee']").change(function(){
+	$("input[name='mensualite-souhaitee']").change(function(){
 		calcTauxEndettement();
+	});
+
+	$("input[name='mensualite-souhaitee']").change(function(){
+		calcEtalement();
 	});
 
 	$("input[name='emprunteur']").change(function(){
@@ -215,7 +228,7 @@ $(document).ready(function() {
 	});
 	
 //Dev test
-	//Query("input[name='prix-vente']").val("15000");
+	//$("input[name='prix-vente']").val("15000");
 	//$("input[name='construction-travaux']").val("10000");
 	//$("input[name='apport']").val("50000");
 	//$("input[name='taux']").val("3");
