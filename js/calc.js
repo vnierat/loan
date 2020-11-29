@@ -127,8 +127,8 @@ function garAll(){
 }
 
 function changeTotals(){
-	$(".total-row input[name='total']").val(calcTotalSansApport());
-	$(".total-financer-row input[name='total-financer']").val(calcTotalAvecApport());
+	$("input[name='total']").val(calcTotalSansApport());
+	$("input[name='total-financer']").val(calcTotalAvecApport());
 	calcMensualite();
 }
 

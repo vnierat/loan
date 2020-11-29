@@ -36,20 +36,20 @@
           <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
+              <li class="nav-item mr-4">
                 <!-- Link--><a class="nav-link <?php if($page == 1) { echo('active');}?>" href="index.php">Accueil</a>
               </li>
               
-              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle <?php if($page == 2) { echo('active');}?>" id="navbarDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nos Crédits</a>
+              <li class="nav-item dropdown mr-4"><a class="nav-link dropdown-toggle <?php if($page == 2) { echo('active');}?>" id="navbarDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nos Crédits</a>
                 <div class="dropdown-menu mt-3" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="credit.php">Crédit Immobilier</a>
                     <a class="dropdown-item" href="credit.php">Rachat de Crédit Immobilier</a>
               </li>
-              <li class="nav-item">
-                <!-- Link--><a class="nav-link <?php if($page == 3) { echo('active');}?>"" href="simulator.php"><i class="fas fa-calculator"></i> Simulez votre prêt</a>
+              <li class="nav-item mr-4">
+                <!-- Link--><a class="nav-link <?php if($page == 3) { echo('active');}?>"" href="simulator.php"><i class="fas fa-calculator mr-2"></i> Simulez votre prêt</a>
               </li>
               
-              <li class="nav-item">             
+              <li class="nav-item mr-4">             
                 <button class="btn btn-primary" type="button" data-target="#quoteForm" data-toggle="modal">Contactez-nous</button>
               </li>
             </ul>

@@ -75,12 +75,31 @@ $(function () {
 
 
   window.onscroll = function showScroll() {
-    //console.log(window.scrollY); // Value of scroll Y in px
-    var windWidth = window.innerWidth;
-    //console.log(windWidth);
+    
+    var widthScreen = window.innerWidth;
+    var heightScreen = window.innerHeight;
+    //console.log(window.scrollY)
+    //console.log(heightScreen);
+
+    if (widthScreen > 991 && window.scrollY >= 260 && heightScreen <= 750) {
+  
+        let elems = $('.fadeInBlock').get();
+        animate();
+      
+        function animate() {
+            let elem = elems.shift();
+            $(elem).show("drop", {
+                direction: "left",
+                complete: function () {
+                    if(elems.length > 0)
+                    window.setTimeout(animate);
+                }
+            }, 700);
+        }    
+    } 
 
     
-    if (windWidth <= 991 && window.scrollY >= 540) {
+    if (widthScreen <= 991 && window.scrollY >= 540) { //cond mobile et tab
   
         let elems = $('.fadeInBlock').get();
         animate();
@@ -98,10 +117,14 @@ $(function () {
     } 
   };
 
+
+
 window.onload = function showScroll() {
 
     var w = window.innerWidth;
-    if (w > 991) {
+    var heightScreen = window.innerHeight;
+
+    if (w > 991 && heightScreen > 750) { // cond desktop
         let elems = $('.fadeInBlock').get();
         animate();
       
@@ -118,3 +141,29 @@ window.onload = function showScroll() {
     }   
     
   };
+
+
+/*var heightScreen = window.innerHeight;
+console.log(heightScreen);
+*/
+
+//travaux
+$('#travaux').change(function() {
+    if($(this).is(":checked")) {
+        $('.travauxHide').show();
+    }
+else{
+        $('.travauxHide').hide();
+    }                                          
+});
+
+
+// Co-emprunteur
+$('#co-emp').change(function() {
+    if($(this).is(":checked")) {
+        $('.co-input').show();
+    }
+else{
+        $('.co-input').hide();
+    }                                          
+});

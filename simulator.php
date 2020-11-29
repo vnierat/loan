@@ -3,10 +3,13 @@
     $content = "Simulez votre taux d'endettement";
     require_once('header.php');
 ?>
-<div class="container" style="margin-top:300px">
+<div class="container" style="margin-top:150px">
+
+
 
 
     <div class="row">
+    <h2 class="mt-5 mb-5">Financement - Taux d'endettement</h2>
 
 
         <div class="col-md-6">
@@ -16,21 +19,21 @@
                                     <span class="glyphicon glyphicon-question-sign info-comp"
                                           title="Prix auquel le bien est vendu (hors frais d’agence et de notaire)"></span>
                                     </td>
-                    <td><input class="prix-vente" name="prix-vente" type="text" value="0" /> €</td>
+                    <td><input class="prix-vente mb-3" name="prix-vente" type="number"/> €</td>
                 </tr>
                 <tr>
                     <td>Construction ou travaux
                                     <span class="glyphicon glyphicon-question-sign info-comp"
                                           title="Montant total de la construction (neuf) ou des travaux"></span>
                                     </td>
-                    <td><input class="construction-travaux" name="construction-travaux" type="text" value="0" /> €</td>
+                    <td><input class="construction-travaux mb-3" name="construction-travaux" type="text" value="0" /> €</td>
                 </tr>
                 <tr>
                     <td>Frais d'agence
                                     <span class="glyphicon glyphicon-question-sign  info-comp"
                                           title="Montant des frais perçus par l’agence sur la transaction et repris dans le compromis de vente"></span>
                                     </td>
-                    <td><input class="frais-agence" name="frais-agence" type="text" readonly /> €</td>
+                    <td><input class="frais-agence mb-3" name="frais-agence" type="text" readonly /> €</td>
                 </tr>
                 <tr>
                     <td>Frais de notaire
@@ -81,29 +84,33 @@
             <hr>
         
             <table class="taux-calc1">
+                
                 <tr>
-                    <td>Taux
-                                    <span class="glyphicon glyphicon-question-sign  info-comp"
+                    <td>Taux souhaité
+                        <td>
+                            <span class="glyphicon glyphicon-question-sign  info-comp"
                                     title="Pourcentage exprimant la part des intérêts dans un emprunt. Ce sont ces intérêts qui vont rémunérer les banques. On distingue deux types de taux d’intérêt :
      
-        +Le taux d’intérêt fixe : le taux ne bouge pas durant la totalité de la période de remboursement.
-        +Le taux d’intérêt variable : le taux bouge en fonction d’un indice de référence, le plus souvent à la date d’anniversaire du prêt."></span>
+                                    +Le taux d’intérêt fixe : le taux ne bouge pas durant la totalité de la période de remboursement.
+                                    +Le taux d’intérêt variable : le taux bouge en fonction d’un indice de référence, le plus souvent à la date d’anniversaire du prêt."></span>
+                        <td>
                                     
-                                    <input class="taux" name="taux" type="text" /> %</td>
+                            <td><input class="taux" name="taux" type="text" /> %</td>
                 </tr>
-                    </table>
+            </table>
                     
-                    <table>
+            <table>
                 <!--<tr style="height:64px"></tr>-->
                 <tr>
                     <td>Mensualité souhaitée</td>
-                    <td><input class="mensualite-souhaitee" name="mensualite-souhaitee" type="text" />
-                    <span class="result-fleche-calc1 glyphicon glyphicon-triangle-right"></span>
-                                    <input class="duree" name="duree" type="text" readonly />
+                    <td>
+                        <input class="mensualite-souhaitee" name="mensualite-souhaitee" type="text" />
+                        <span class="result-fleche-calc1 glyphicon glyphicon-triangle-right"></span>
+                        <input class="duree" name="duree" type="text" readonly />
                     </td>
                 </tr>
                             
-                    </table>
+            </table>
                     
                     <table>
                 <!--<tr style="height:64px"></tr>-->
@@ -111,7 +118,7 @@
                     <td>Durée souhaitée</td>
                     <td><input class="duree-souhaitee" name="duree-souhaitee" type="text" />
                     <span class="result-fleche-calc1 glyphicon glyphicon-triangle-right"></span>
-                                    <input class="mensualite" name="mensualite" type="hidden" readonly /> €
+                    <input class="mensualite" name="mensualite" type="text" readonly /> €
                     </td>
                 </tr>
                     </table>
