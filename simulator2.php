@@ -12,8 +12,12 @@
 
             <div class="form-group row">
                 <label for="prix-vente" class="col-sm-4 col-form-label">Prix de Vente</label>
-                <div class="col-sm-8">
-                    <input type="text" class="prix-vente form-control" placeholder="Prix de Vente en €" name="prix-vente">
+                <div class="input-group col-sm-8">
+                    <div class="input-group-prepend">
+                            <div class="input-group-text">€</div>
+                    </div>
+                        <input type="text" class="prix-vente form-control" placeholder="Prix de Vente en €" name="prix-vente" id="inlineFormInputGroup">
+                    
                 </div>
             </div>
 
@@ -94,7 +98,8 @@
             <div class="form-group row mt-4">
                 <label for="total-financer" class="col-sm-4 col-form-label font-weight-bold text-primary">Total à financer</label>
                 <div class="col-sm-8">
-                    <input class="total-financer form-control total-financer-row" name="total-financer" type="text" readonly />
+                    <input class="total-financer form-control total-financer-row" name="total-financer" type="hidden" readonly />
+                    <div class="totFin pt-2 font-weight-bold text-primary"></div>
                 </div>
             </div>
 
@@ -124,9 +129,9 @@
                 <div class="input-group mb-2 col-sm-8">
                     <div class="input-group-prepend">
                         <div class="input-group-text">%</div>
-                        </div>
-                        <input type="text" class="taux form-control" id="inlineFormInputGroup" placeholder="Taux d'intéret" name="taux">
                     </div>
+                        <input type="text" class="taux form-control" id="inlineFormInputGroup" placeholder="Taux d'intéret" name="taux">
+                </div>
             </div>
 
             <div class="font-weight-bold mt-3 mb-3">Revenus mensuels du foyer</div>
@@ -154,7 +159,8 @@
             <div class="form-group row mt-4">
                 <label for="total-revenus" class="col-sm-4 col-form-label font-weight-bold text-primary">Total des revenus</label>
                 <div class="col-sm-8">
-                    <input class="total-revenus form-control" name="total-revenus" type="text" readonly /> 
+                    <input class="total-revenus form-control" name="total-revenus" type="hidden" readonly /> 
+                    <div class="totRevenus pt-2 font-weight-bold text-primary"></div>
                 </div>
             </div>
            

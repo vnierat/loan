@@ -130,6 +130,14 @@ function garAll(){
 function changeTotals(){
 	$("input[name='total']").val(calcTotalSansApport());
 	$("input[name='total-financer']").val(calcTotalAvecApport());
+
+	var totalFinancer = $("input[name='total-financer']").val();
+
+	$('.totFin').html(totalFinancer);
+
+	if(isNaN(totalFinancer)){
+		$(".totFin").html("Calcul...");
+	}
 	calcMensualite();
 }
 
@@ -149,6 +157,9 @@ function calcRevenusMensuels(){
 	var emp=parseFloat($(".emprunteur").val());
 	var coemp=parseFloat($(".co-emprunteur").val());
 	$("input[name='total-revenus']").val(emp+coemp);
+	var totRev = $("input[name='total-revenus']").val();
+
+	$('.totRevenus').html(totRev);
 	calcTauxEndettement();
 }
 
@@ -157,6 +168,10 @@ function calcTauxEndettement(){
 	var mens=parseFloat($(".mensualite-souhaitee").val());
 	$("input[name='taux-endettement']").val(((mens/total_rev)*100).toFixed(2));
 	var tauxTot = ((mens/total_rev)*100).toFixed(2);
+
+	if(isNaN(total_rev)){
+		$(".totRevenus").html("Calcul...");
+	}
 
 	if(tauxTot <= 33 && total_rev > 0) {
 		$(".resultatTot").html('<p class="text-success">Votre taux d\'endettement est de <strong>'+tauxTot +'%</strong></p>');
@@ -184,6 +199,9 @@ $(document).ready(function() {
 	$("input[name='prix-vente']").on("keyup change", function(){
 		$("input[name='frais-agence']").val(calcFraisAgence());
 		$("input[name='frais-notaire']").val(calcFraisNotaire());
+
+		//var coco= $("input[name='frais-agence']").val();
+		//console.log(coco);
                 garantieTest();
 		//garAll();
 	});
