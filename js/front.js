@@ -157,13 +157,23 @@ else{
     }                                          
 });
 
-
-// Co-emprunteur
+// Apport
 $('#co-emp').change(function() {
     if($(this).is(":checked")) {
         $('.co-input').show();
     }
 else{
         $('.co-input').hide();
+    }                                          
+});
+
+
+// Co-emprunteur
+$('#apportCheck').change(function() {
+    if($(this).is(":checked")) {
+        $('.apportRow').show();
+    }
+else{
+        $('.apportRow').hide();
     }                                          
 });

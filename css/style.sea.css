@@ -25,6 +25,10 @@ strong {
   font-weight: 700;
 }
 
+label {
+  font-size: 13px!important;
+}
+
 /*
 *
 * ==========================================
@@ -3585,12 +3589,12 @@ input[type="checkbox"] + label {
 
 input[type="checkbox"] + label:last-child { margin-bottom: 0; }
 
-input[type="checkbox"] + label:before {
+input[type="checkbox"] + label::after {
     content: '';
     display: block;
     width: 20px;
     height: 20px;
-    border: 1px solid #6cc0e5;
+    border: 1px solid #379392;
     position: absolute;
     left: 0;
     top: 0;
@@ -3599,7 +3603,7 @@ input[type="checkbox"] + label:before {
     transition: all .12s, border-color .08s;
 }
 
-input[type="checkbox"]:checked + label:before {
+input[type="checkbox"]:checked + label::after {
     width: 10px;
     top: -5px;
     left: 5px;
@@ -3610,3 +3614,22 @@ input[type="checkbox"]:checked + label:before {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }	
+
+/* end checkbox */
+
+.bgCalc {
+  background-color: #ebf3fa;
+}
+
+.form-control {
+  border: 1px solid #ebf3fa;
+}
+
+.etalement, .resultatTot {
+  background-color: #FFF;
+  border-radius: 4px;
+  min-height: 48px;
+  padding: 8px 10px 1px 10px;
+}
+
+

@@ -7,6 +7,7 @@ var garantieBpercentbis=0.01;
 var garantieCpercent=0.0097;
 var garantieCajout=400;
 
+
 function calcFraisAgence(){
 	return $(".prix-vente").val()*f_agence;
 }
@@ -101,7 +102,7 @@ function cleanGarantie(){
 function garantieTest(){
         cleanGarantie();
         var getGarantie=$("input[name='garantie-check']:checked").val();
-        console.log(getGarantie);
+        //console.log(getGarantie);
         if(getGarantie=="casden"){
             calcGarantieA(true);
         }
@@ -157,10 +158,10 @@ function calcTauxEndettement(){
 	$("input[name='taux-endettement']").val(((mens/total_rev)*100).toFixed(2));
 	var tauxTot = ((mens/total_rev)*100).toFixed(2);
 
-	if(tauxTot <= 33.33) {
+	if(tauxTot <= 33 && total_rev > 0) {
 		$(".resultatTot").html('<p class="text-success">Votre taux d\'endettement est de <strong>'+tauxTot +'%</strong></p>');
 	} 
-	if(tauxTot > 33.33){
+	if(tauxTot > 33 && total_rev > 0) {
 		$(".resultatTot").html('<p class="text-danger">Votre taux d\'endettement est de <strong>'+tauxTot +'%</strong></p>');
 	}
 }
@@ -172,12 +173,15 @@ function calcEtalement(){
 	var calculDuree = (mens*12)*duree;
 
 	console.log(calculDuree);
+	if(duree > 0 && mens > 0 && total_fi > 0) {
+	$('.etalement').html('<p>Avec des mensualités de <font class="font-weight-bold text-primary">'+mens+'€</font>, vous aurez remboursé <font class="font-weight-bold text-primary">'+calculDuree+'€</font> en <font class="font-weight-bold text-primary">'+duree+' ans</font>.</p>')
+	}
 }
 
 
 $(document).ready(function() {
 
-	$("input[name='prix-vente']").change(function(){
+	$("input[name='prix-vente']").on("keyup change", function(){
 		$("input[name='frais-agence']").val(calcFraisAgence());
 		$("input[name='frais-notaire']").val(calcFraisNotaire());
                 garantieTest();
@@ -199,7 +203,7 @@ $(document).ready(function() {
         
         $("input[name='garantie-check']").click(garantieTest);
 	
-	$("input[name='apport']").change(function(){
+	$("input[name='apport']").on("keyup change", function(){
 		changeTotals();
 	});
 
@@ -207,23 +211,31 @@ $(document).ready(function() {
 		calcMensualite();
 	});
 
-	$("input[name='duree-souhaitee']").change(function(){
+	$("input[name='duree-souhaitee']").on("keyup change", function(){
 		calcMensualite();
 	});
 
-	$("input[name='mensualite-souhaitee']").change(function(){
+	$("input[name='mensualite-souhaitee']").on("keyup change", function(){
 		calcTauxEndettement();
 	});
 
-	$("input[name='mensualite-souhaitee']").change(function(){
+	$("input[name='prix-vente']").on("keyup change", function(){
 		calcEtalement();
 	});
 
-	$("input[name='emprunteur']").change(function(){
+	$("input[name='mensualite-souhaitee']").on("keyup change", function(){
+		calcEtalement();
+	});
+
+	$("input[name='duree-souhaitee']").on("keyup change", function(){
+		calcEtalement();
+	});
+
+	$("input[name='emprunteur']").on("keyup change", function(){
 		calcRevenusMensuels();
 	});
 
-	$("input[name='co-emprunteur']").change(function(){
+	$("input[name='co-emprunteur']").on("keyup change", function(){
 		calcRevenusMensuels();
 	});
 	
@@ -236,3 +248,5 @@ $(document).ready(function() {
 
 
 });
+
+

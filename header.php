@@ -22,6 +22,12 @@
     <link rel="stylesheet" href="css/style.sea.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
+    <!-- Accordion -->
+    <?php
+      if($page ==2) {
+        echo('<link rel="stylesheet" href="css/accordion.css">');
+      }
+    ?>
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -42,11 +48,11 @@
               
               <li class="nav-item dropdown mr-4"><a class="nav-link dropdown-toggle <?php if($page == 2) { echo('active');}?>" id="navbarDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nos Crédits</a>
                 <div class="dropdown-menu mt-3" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="credit.php">Crédit Immobilier</a>
+                    <a class="dropdown-item" href="credit-immo.php">Crédit Immobilier</a>
                     <a class="dropdown-item" href="credit.php">Rachat de Crédit Immobilier</a>
               </li>
               <li class="nav-item mr-4">
-                <!-- Link--><a class="nav-link <?php if($page == 3) { echo('active');}?>"" href="simulator.php"><i class="fas fa-calculator mr-2"></i> Simulez votre prêt</a>
+                <!-- Link--><a class="nav-link <?php if($page == 3) { echo('active');}?>"" href="simulator2.php"><i class="fas fa-calculator mr-2"></i> Simulez votre prêt</a>
               </li>
               
               <li class="nav-item mr-4">             
