@@ -7,6 +7,8 @@ var garantieBpercentbis=0.01;
 var garantieCpercent=0.0097;
 var garantieCajout=400;
 
+$(".infos-danger").hide();
+
 
 function calcFraisAgence(){
 	return $(".prix-vente").val()*f_agence;
@@ -60,7 +62,15 @@ function calcGarantieD(check){
 }
 
 function calcTotalSansApport(){
-	return calcFraisBase()+calcGaranties();
+	var tx = parseFloat($("input[name='taux']").val());
+	var addTx = ((calcFraisBase()*tx)/100);
+	
+	return calcFraisBase()+calcGaranties()+addTx;
+	
+	
+	
+
+	
 }
 
 function calcTotalAvecApport(){
@@ -129,11 +139,13 @@ function garAll(){
 
 function changeTotals(){
 	$("input[name='total']").val(calcTotalSansApport());
-	$("input[name='total-financer']").val(calcTotalAvecApport());
+	$("input[name='total-financer']").val(calcTotalAvecApport())
 
-	var totalFinancer = $("input[name='total-financer']").val();
+	var totalFinancer = ($("input[name='total-financer']").val());
 
-	$('.totFin').html(totalFinancer);
+	var formatTot = (new Intl.NumberFormat('fr-FR').format(totalFinancer));
+
+	$('.totFin').html(formatTot+" €");
 
 	if(isNaN(totalFinancer)){
 		$(".totFin").html("Calcul...");
@@ -149,6 +161,9 @@ function calcMensualite(){
 	var calc1=(total_fi*((taux/100)/12));
 	var calc2=1-Math.pow((1+(taux/100)/12),-duree);
 	$("input[name='mensualite']").val((calc1/calc2).toFixed(2));
+	
+	//console.log(taux)
+
 	calcTauxEndettement();
 	calcEtalement();
 }
@@ -159,7 +174,9 @@ function calcRevenusMensuels(){
 	$("input[name='total-revenus']").val(emp+coemp);
 	var totRev = $("input[name='total-revenus']").val();
 
-	$('.totRevenus').html(totRev);
+	var formatRev = (new Intl.NumberFormat('fr-FR').format(totRev));
+
+	$('.totRevenus').html(formatRev + " €");
 	calcTauxEndettement();
 }
 
@@ -178,6 +195,9 @@ function calcTauxEndettement(){
 	} 
 	if(tauxTot > 33 && total_rev > 0) {
 		$(".resultatTot").html('<p class="text-danger">Votre taux d\'endettement est de <strong>'+tauxTot +'%</strong></p>');
+		$(".infos-danger").show();
+	} else {
+		$(".infos-danger").hide();
 	}
 }
 
@@ -187,9 +207,11 @@ function calcEtalement(){
 	var mens=parseFloat($(".mensualite-souhaitee").val());
 	var calculDuree = (mens*12)*duree;
 
-	console.log(calculDuree);
+	var mensForm = (new Intl.NumberFormat('fr-FR').format(mens));
+	var calcForm = (new Intl.NumberFormat('fr-FR').format(calculDuree));
+
 	if(duree > 0 && mens > 0 && total_fi > 0) {
-	$('.etalement').html('<p>Avec des mensualités de <font class="font-weight-bold text-primary">'+mens+'€</font>, vous aurez remboursé <font class="font-weight-bold text-primary">'+calculDuree+'€</font> en <font class="font-weight-bold text-primary">'+duree+' ans</font>.</p>')
+	$('.etalement').html('<p>Avec des mensualités de <font class="font-weight-bold text-primary">'+mensForm+'€</font>, vous aurez remboursé <font class="font-weight-bold text-primary">'+calcForm+' €</font> en <font class="font-weight-bold text-primary">'+duree+' ans</font>.</p>')
 	}
 }
 
@@ -197,8 +219,24 @@ function calcEtalement(){
 $(document).ready(function() {
 
 	$("input[name='prix-vente']").on("keyup change", function(){
+		
 		$("input[name='frais-agence']").val(calcFraisAgence());
+		var formatAgence = (new Intl.NumberFormat('fr-FR').format(calcFraisAgence()));
+
+		$(".fraisAgence").html(formatAgence + " €");
+
 		$("input[name='frais-notaire']").val(calcFraisNotaire());
+
+		var formatNotaire = (new Intl.NumberFormat('fr-FR').format(calcFraisNotaire()));
+
+		$(".fraisNotaire").html(formatNotaire + " €");
+
+		if(isNaN(calcFraisAgence())){
+			$(".fraisAgence").html('<div class="text-danger">Veuillez entrer des chiffres dans le prix de vente</div>');
+		}
+		if(isNaN(calcFraisNotaire())){
+			$(".fraisNotaire").html('<div class="text-danger">Veuillez entrer des chiffres dans le prix de vente</div>');
+		}
 
 		//var coco= $("input[name='frais-agence']").val();
 		//console.log(coco);
@@ -225,8 +263,9 @@ $(document).ready(function() {
 		changeTotals();
 	});
 
-	$("input[name='taux']").change(function(){
+	$("input[name='taux']").on("keyup change", function(){
 		calcMensualite();
+		changeTotals();
 	});
 
 	$("input[name='duree-souhaitee']").on("keyup change", function(){

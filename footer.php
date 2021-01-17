@@ -1,47 +1,36 @@
 <footer class="map-bg">
       <div class="container py-5 border-bottom">
         <div class="row pt-5">
-          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0"><img class="mb-3" src="img/logo-lpi.png" alt="" width="80">
-            <ul class="list-unstyled text-muted">
-              <li><a class="reset-anchor text-small" href="mailto:contactlepretimmo@gmail.com">contactlepretimmo@gmail.com</a></li>
-              <li><a class="reset-anchor text-small" href="tel:+33321300750">+33 3 21 30 07 50</a></li>
-            </ul>
-            <ul class="list-inline text-muted">
-              <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a></li>
-              <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a></li>
-              <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-            <h4>About us</h4>
-            <ul class="list-unstyled text-muted mb-0">
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">Support center</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">Customer support</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">About us</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">copyright</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">popular campaign</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-            <h4>Our information</h4>
-            <ul class="list-unstyled text-muted mb-0">
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">Support center</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">Customer support</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">About us</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">copyright</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">popular campaign</a></li>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-4">
-            <h4>Policy</h4>
-            <ul class="list-unstyled text-muted mb-0">
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">Support center</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">Customer support</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">About us</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">copyright</a></li>
-              <li class="mb-1"><a class="text-small reset-anchor" href="#">popular campaign</a></li>
-            </ul>
-          </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0"><img class="mb-3" src="img/logo-lpi.png" alt="" width="80">
+                <ul class="list-unstyled text-muted">
+                    <li><a class="reset-anchor text-small" href="mailto:contactlepretimmo@gmail.com">contactlepretimmo@gmail.com</a></li>
+                    <li><a class="reset-anchor text-small" href="tel:+33321300750">+33 3 21 30 07 50</a></li>
+                </ul>
+                <!--
+                <ul class="list-inline text-muted">
+                    <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a class="reset-anchor" href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>-->
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 ml-auto">
+                <h4>Nos services</h4>
+                <ul class="list-unstyled text-muted mb-0">
+                    <li class="mb-1"><a class="text-small reset-anchor" href="credit-immo.php">Nos crédits immobiliers</a></li>
+                    <li class="mb-1"><a class="text-small reset-anchor" href="credit-immo.php">Rachats de crédits</a></li>
+                    <li class="mb-1"><a class="text-small reset-anchor" href="simulator2.php">Simulez votre prêt</a></li>
+                    <li class="mb-1"><a class="text-small reset-anchor" href="#">Conditions générales</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 ml-auto">
+                <h4>À propos</h4>
+                <ul class="list-unstyled text-muted mb-0">
+                    <li class="mb-1"><a class="text-small reset-anchor" href="agences.php">Nos agences</a></li>
+                    <li class="mb-1"><a class="text-small reset-anchor" href="contact.php">Nous contacter</a></li>
+                    <li class="mb-1"><a class="text-small reset-anchor" href="#">Conditions générales</a></li>
+                </ul>
+            </div>
+          
         </div>
       </div>
       <div class="container py-4">           
@@ -69,7 +58,7 @@
             crossorigin="anonymous"></script>
     <script src="js/front.js"></script>
     <?php
-      if ($page == 3) {
+      if ($page === 1 || $page === 3) {
         echo ('<script src="js/calc.js"></script>');
       }
 
